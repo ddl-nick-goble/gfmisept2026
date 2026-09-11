@@ -1,0 +1,10 @@
+# Raw screen recordings. Encode with prep-videos.sh and commit the .mp4 only.
+*.mov
+*.MOV
+*.mkv
+*.webm
+raw/
+
+# macOS
+.DS_Store
+._*
