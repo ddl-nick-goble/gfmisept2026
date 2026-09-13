@@ -229,6 +229,11 @@ ul.q li .ans{display:block;font-family:var(--sans);font-size:21px;line-height:1.
 .slide.demo .ph .hint{font-size:12.5px;color:#5E5E6A;letter-spacing:.05em}
 .slide.demo .caption{position:relative;z-index:3;flex:none;padding:26px 70px 30px;
   background:#101016;border-top:1px solid rgba(255,255,255,.09)}
+/* While a demo plays, drop the caption band so the video takes the whole
+   slide. A 1080p screen recording letterboxed into 525px renders UI text at
+   half size, which the back of the room cannot read; full bleed gets it to
+   two thirds. The caption comes back the moment you pause. */
+.slide.demo.playing .caption{display:none}
 .slide.demo .caption .tagd{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#D89AA4;margin-bottom:14px}
 .slide.demo .caption .tagd.l1{color:#D9A45C}
 .slide.demo .caption .tagd.l2{color:#79B4C4}
@@ -281,6 +286,8 @@ ul.q li .ans{display:block;font-family:var(--sans);font-size:21px;line-height:1.
   #bar,.chrome,#help,#notes,#ovl{display:none!important}
   video{display:none!important}
   .slide.demo .ph{display:flex!important}
+  .slide.demo .ph .hint{display:none}   /* build note, not handout content */
+  .slide.demo.playing .caption{display:flex!important}
   @page{size:1280px 720px;margin:0}
 }
 </style>
@@ -1132,6 +1139,10 @@ slides.forEach(s=>{
   v.dataset.url=url;
   ['loadedmetadata','loadeddata','canplay'].forEach(ev=>v.addEventListener(ev,ok));
   v.addEventListener('error',bad);
+
+  const slideEl=s;
+  v.addEventListener('play', ()=>slideEl.classList.add('playing'));
+  ['pause','ended'].forEach(ev=>v.addEventListener(ev, ()=>slideEl.classList.remove('playing')));
 
   const localProbe=()=>{
     v.preload='metadata';

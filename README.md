@@ -45,13 +45,15 @@ The URL tracks your position, so `.../gfmisept2026/#17` opens at slide 17 and a 
 `index.html` looks for these **in this folder**, by exact filename:
 
 ```
-demo-vibe-coding.mp4     slide 8
-demo-control.mp4         slide 26
-demo-validate.mp4        slide 27
-demo-audit.mp4           slide 28
+demo-vibe-coding.mp4     slide 8    committed, 16.8 MB, 2:35
+demo-control.mp4         slide 26   not yet
+demo-validate.mp4        slide 27   not yet
+demo-audit.mp4           slide 28   not yet
 ```
 
 Any that are missing show a placeholder card naming the file, so the deck presents fine before they exist.
+
+**While a demo plays, the caption band collapses and the video goes full bleed.** A 1080p screen recording letterboxed above the caption renders UI text at about half size, which the back of a conference room cannot read. Full bleed gets it to two thirds. The caption returns the moment you pause, and it is always present in the PDF.
 
 To prepare them:
 
