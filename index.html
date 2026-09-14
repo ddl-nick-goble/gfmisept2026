@@ -423,13 +423,12 @@ const SLIDES = [
 
 Do not promise a demo yet. Let slide 8 be a surprise.
 
-TIMING, READ THIS BEFORE YOU PRESENT. Four demo videos at two to three minutes each is eight to nine minutes, which leaves about twenty-one minutes for twenty-seven slides. You are over. Cut in this order, and decide before you walk on rather than on stage:
+TIMING, READ THIS BEFORE YOU PRESENT. Three demos in the deck run 7:40 between them and a fourth is still to come, which leaves under twenty-two minutes for twenty-six slides. You are over. Cut in this order, and decide before you walk on rather than on stage:
 1. Slide 8, the vibe coding demo. Slides 7 and 9 already make the point with the same four labels.
 2. Slide 9, if you keep the demo instead. One of 7, 8, 9 has to go.
-3. Slide 16, Act is a loop of its own. It is an objection handler. Move it to the hold-back list.
-4. Slide 20, the bridge line. Say it while walking to Jack.
-5. Slide 10, the growing turns. Best argument, weakest evidence.
-Checkpoints: minute 8 you should be at slide 11. Minute 15 at slide 17. Minute 21 at slide 24. If you are behind at 21, play one demo and describe the other two.`,
+3. Slide 19, the bridge line. Say it while walking to Jack.
+4. Slide 10, the growing iterations. Best argument, weakest evidence.
+Checkpoints: minute 8 you should be at slide 11. Minute 15 at slide 16. Minute 21 at slide 23. If you are behind at 21, play the validation demo and describe the rest.`,
 html:`<div class="slide center">
   <div class="kicker">GFMI &middot; Model Risk and AI Governance</div>
   <h1>Human in the Loop<br>Isn't New</h1>
@@ -737,30 +736,6 @@ html:`<div class="slide">
   </div>
 </div>`},
 
-{act:"III · The loop isn't new", notes:`Small slide, quick, but it prevents a real objection.
-
-"Somebody is going to say: fine, the human owns Check, but Check just produces a finding. Who fixes it? And the answer is that Act is a loop of its own."
-
-When a check fails, what happens next is a plan, a do, a check and an act. That's your remediation process. It needs the same discipline as the loop it is fixing, and in most organizations it has less.
-
-Optional line if the room is with you: this is also why "we found the issue" is not the same as "we closed the issue," and your audit function already knows the difference.`,
-html:`<div class="slide wide center">
-  <h2 style="margin-bottom:10px">Remediation follows the same cycle.</h2>
-  <div class="row" style="gap:34px;margin-top:0;align-items:stretch">
-    <div class="cycwrap">
-      <div></div>
-      <div class="art">${cycle({labels:['Plan','Do','Check','Act'],r:94,ls:20,padX:90,padY:44,focus:3})}</div>
-      <div class="cap-t">The outer loop</div>
-    </div>
-    <div class="cycwrap"><div></div><div class="art conn">&rarr;</div><div class="cap-t"></div></div>
-    <div class="cycwrap">
-      <div></div>
-      <div class="art">${cycle({labels:['Plan','Do','Check','Act'],r:72,ls:17,padX:72,padY:38,base:'#8A2F3E',labelColor:'var(--accent)',sw:1.8,arrow:7.4,gap:34})}</div>
-      <div class="cap-t" style="color:var(--accent)">Inside Act</div>
-    </div>
-  </div>
-  <p class="frag" style="font-size:22px;margin-top:22px;max-width:66ch;text-align:center">When a check fails, we plan a fix, implement it, test it, and decide whether it resolves the issue.</p>
-</div>`},
 
 /* ==================== IV · THE CHECKS ==================== */
 

@@ -1,6 +1,6 @@
 # GFMI September 2026
 
-*Human in the Loop Is Not a New Pattern.* 31-slide HTML deck, self-contained apart from the demo videos.
+*Human in the Loop Isn't New.* 30-slide HTML deck, self-contained apart from the demo videos.
 
 Live at **https://ddl-nick-goble.github.io/gfmisept2026/**
 
@@ -11,7 +11,7 @@ Live at **https://ddl-nick-goble.github.io/gfmisept2026/**
 | File | What |
 |---|---|
 | `index.html` | The deck. CSS, JS and the Jack illustration are all inline. 400 KB, no CDN. Byte-identical to `hitl-deck.html` in the project folder, so there is one deck to maintain, not two |
-| `hitl-deck.pdf` | The same 31 slides as a handout, one per page |
+| `hitl-deck.pdf` | The same 30 slides as a handout, one per page |
 | `prep-videos.sh` | ffmpeg wrapper that makes a raw recording web-ready |
 | `.nojekyll` | Stops GitHub from running Jekyll over the files |
 | `demo-*.mp4` | The demos. Vibe coding, validate and audit are in; control is not recorded yet |
@@ -32,7 +32,7 @@ Open the URL in Chrome and press `F`.
 | `O` | Overview grid, click to jump |
 | `F` | Fullscreen |
 
-The URL tracks your position, so `.../gfmisept2026/#17` opens at slide 17 and a reload resumes where you were.
+The URL tracks your position, so `.../gfmisept2026/#16` opens at slide 16 and a reload resumes where you were.
 
 **Mirror your display, don't extend it, or the room reads your notes when you press `S`.**
 
@@ -46,9 +46,9 @@ The URL tracks your position, so `.../gfmisept2026/#17` opens at slide 17 and a 
 
 ```
 demo-vibe-coding.mp4     slide 8    committed, 16.8 MB, 2:35
-demo-control.mp4         slide 26   not recorded yet
-demo-validate.mp4        slide 27   committed, 17.6 MB, 1:12
-demo-audit.mp4           slide 28   committed, 24.9 MB, 3:53
+demo-control.mp4         slide 25   not recorded yet
+demo-validate.mp4        slide 26   committed, 17.6 MB, 1:12
+demo-audit.mp4           slide 27   committed, 24.9 MB, 3:53
 ```
 
 Any that are missing show a placeholder card naming the file, so the deck presents fine before they exist.
@@ -82,7 +82,7 @@ Measured, not assumed. On a range-capable server with a 6.7 MB demo in place:
 
 - **Page load transfers 514 KB total**, which is the deck plus four poster frames. Zero video bytes.
 - Each video's `src` is withheld until you are one slide away from it. The deck asks the server whether the file exists with a `HEAD` request, which transfers nothing, and uses that to decide between the video and the placeholder card.
-- Arriving at slide 25 starts buffering slide 26's demo, so it's ready when you get there.
+- Arriving at slide 24 starts buffering slide 25's demo, so it's ready when you get there.
 
 Chrome does not reliably honour `preload="metadata"` on a large file, so relying on that alone pulled all four videos on page load. This does not.
 
