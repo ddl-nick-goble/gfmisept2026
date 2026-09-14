@@ -284,9 +284,14 @@ ul.q li .ans{display:block;font-family:var(--sans);font-size:21px;line-height:1.
   .fitwrap{transform:none!important}
   .frag{opacity:1!important;transform:none!important}
   #bar,.chrome,#help,#notes,#ovl{display:none!important}
+  /* a slide whose video exists prints its poster frame; one still waiting on a
+     file prints the placeholder, minus the build note */
   video{display:none!important}
   .slide.demo .ph{display:flex!important}
-  .slide.demo .ph .hint{display:none}   /* build note, not handout content */
+  .slide.demo .ph .hint{display:none}
+  .slide.demo[data-hasvideo] .ph{display:none!important}
+  .slide.demo[data-hasvideo] .vidbox{background-image:var(--poster);background-size:contain;
+    background-position:center;background-repeat:no-repeat}
   .slide.demo.playing .caption{display:flex!important}
   @page{size:1280px 720px;margin:0}
 }
@@ -1133,8 +1138,13 @@ slides.forEach(s=>{
   const v=s.querySelector('video'); if(!v) return;
   const ph=s.querySelector('.ph');
   const url=v.getAttribute('src');
-  const ok=()=>{v.style.display='block'; if(ph)ph.style.display='none';};
-  const bad=()=>{v.style.display='none'; if(ph)ph.style.display='flex';};
+  const vb=s.querySelector('.vidbox');
+  const ok=()=>{
+    v.style.display='block'; if(ph)ph.style.display='none'; s.dataset.hasvideo='1';
+    const pst=v.getAttribute('poster');          /* printed instead of the player */
+    if(pst&&vb) vb.style.setProperty('--poster','url("'+pst+'")');
+  };
+  const bad=()=>{v.style.display='none'; if(ph)ph.style.display='flex'; delete s.dataset.hasvideo;};
   bad();
   v.dataset.url=url;
   ['loadedmetadata','loadeddata','canplay'].forEach(ev=>v.addEventListener(ev,ok));
