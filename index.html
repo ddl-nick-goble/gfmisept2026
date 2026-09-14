@@ -924,7 +924,17 @@ FIRST LINE. "Limits on which tools this agent can call, which data it can see an
 SECOND LINE. "Tests against expectations somebody defined independently, on a schedule and after any material change."
 THIRD LINE. "A record of the inputs, the actions, the checks, the results and any approvals or exceptions, falling out of the workflow rather than reconstructed afterwards."
 
-Then: "We built all three of those. Let me show you, and then you can tell me where it is wrong."`,
+Then: "We built all three of those. Let me show you, and then you can tell me where it is wrong."
+
+CARRIED OVER FROM THE SLIDE THAT USED TO SIT HERE. You are about to show agents doing the checking, having spent ten minutes on responsibility. Say the distinction out loud before the first demo or somebody will raise it in Q&A and it will look like you had not thought about it.
+
+An agent can run the tests, compare results against the acceptance criteria, collect the evidence and flag the exceptions. That work is mechanical, it scales, and doing it by hand is the reason coverage is thin everywhere. What stays with a named owner is the acceptance criteria, the limits on what the agent may do, and which decisions require a person to look. Automating a task does not move the responsibility for it.
+
+AND THE BOTTLENECK, because for the line of business people in the room it is the only question they came with. "Automation expands coverage and cuts review effort. The human review then concentrates on the decisions that need judgement, and it comes with enough evidence to make that review mean something."
+
+Do not reach for "a person still signs it." It makes the oversight you are arguing for sound like a rubber stamp.
+
+CHECKPOINT: you should be here around minute 21. If you are past it, play the validation demo and describe the rest.`,
 html:`<div class="slide">
   <h2 style="margin-bottom:12px">Build controls and evidence collection into the workflow.</h2>
   <p style="font-size:21px;margin-bottom:38px;max-width:76ch">Automated checks can run during execution. Independent validation and audit can use the evidence the workflow produces.</p>
@@ -947,33 +957,6 @@ html:`<div class="slide">
   </div>
 </div>`},
 
-{act:"VI · In Domino", notes:`SAY THIS BEFORE THE DEMOS. If you skip it, somebody will raise it in Q&A and it will look like you had not thought about it.
-
-"I'm about to show you agents doing the checking. Ten minutes ago I told you that if the agent runs the check, nobody is accountable. So let me be precise about the distinction, because it matters."
-
-An agent can run the tests, compare results against the acceptance criteria, collect the evidence and flag the exceptions. That work is mechanical, it scales, and doing it by hand is the reason coverage is thin everywhere.
-
-What stays with a named owner is the acceptance criteria, the limits on what the agent may do, and which decisions require a person to look. Automating a task does not move the responsibility for it.
-
-Avoid the signature line. "A person still signs it" makes the oversight you are arguing for sound like a rubber stamp, which is the exact failure mode you spent ten minutes warning them about.
-
-AND ANSWER THE BOTTLENECK, because for the line of business people in the room it is the only question they came with. "Automation expands coverage and cuts review effort. The human review then concentrates on the decisions that need judgement, and it comes with enough evidence to make that review mean something."
-
-CHECKPOINT: you should be here around minute 21. If you are past it, play one demo and describe the other two.`,
-html:`<div class="slide">
-  <h3 style="margin-bottom:32px">Dividing the work</h3>
-  <div class="cols" style="gap:56px;align-items:stretch">
-    <div class="line-card" style="border-top-color:var(--muted)">
-      <div class="ord">AN AGENT CAN</div>
-      <div class="paren" style="font-size:20px">Run tests, compare results with acceptance criteria, collect evidence, and flag exceptions.</div>
-    </div>
-    <div class="line-card frag" style="border-top-color:var(--accent)">
-      <div class="ord" style="color:var(--accent)">A NAMED OWNER REMAINS RESPONSIBLE FOR</div>
-      <div class="paren" style="font-size:20px">The acceptance criteria, permitted actions, and decisions that require human review.</div>
-    </div>
-  </div>
-  <p class="frag" style="font-size:22px;margin-top:34px;max-width:70ch">Automation can expand coverage and reduce review effort. Human review should focus on decisions that require judgment, with enough evidence to make that review meaningful.</p>
-</div>`},
 
 {act:"VI · In Domino", notes:`FIRST LINE demo. Keep it to two minutes.
 
