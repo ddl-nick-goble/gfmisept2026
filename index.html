@@ -116,13 +116,25 @@ em{font-style:italic;color:var(--ink-2)}
 .callout p{font-size:22px;line-height:1.45;color:var(--ink-2);max-width:32ch}
 
 .line-card{border-top:3px solid var(--rule);padding:22px 0 0;display:flex;flex-direction:column}
+
+/* Three-up cards whose internal rules have to line up across columns.
+   margin-top:auto bottom-aligns the ownership TEXT, so a one-line note puts
+   its rule lower than a two-line one. Subgrid shares the row tracks with the
+   parent instead, which aligns the rules regardless of line count. */
+.cols3.aligned{grid-template-rows:auto auto 1fr auto}
+.cols3.aligned > .line-card{display:grid;grid-template-rows:subgrid;grid-row:span 4}
+.cols3.aligned > .line-card > .who{margin-top:0;align-self:start}
+@supports not (grid-template-rows: subgrid){
+  .cols3.aligned > .line-card{display:flex;flex-direction:column}
+  .cols3.aligned > .line-card > .who{margin-top:auto;min-height:3.35em}
+}
 .line-card.l1{border-top-color:var(--agent)}
 .line-card.l2{border-top-color:var(--human)}
 .line-card.l3{border-top-color:var(--third)}
 .line-card .ord{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--faint);font-weight:700;margin-bottom:12px}
 .line-card .name{font-family:var(--sans);font-size:26px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
 .line-card .paren{font-size:19px;color:var(--muted);line-height:1.4}
-.line-card .who{font-size:17px;color:var(--muted);line-height:1.45;margin-top:auto;padding-top:16px;border-top:1px solid var(--rule-2)}
+.line-card .who{font-size:17px;color:var(--muted);line-height:1.45;margin-top:auto;padding-top:16px;border-top:1px solid var(--rule)}
 
 /* lists */
 ul{list-style:none}
@@ -758,7 +770,7 @@ BE HONEST ABOUT THE LABELS. Control, validate, audit are your words, not the IIA
 CHECKPOINT: you should be here around minute 15.`,
 html:`<div class="slide wide">
   <h2 style="margin-bottom:36px">Three types of checks</h2>
-  <div class="cols3">
+  <div class="cols3 aligned">
     <div class="line-card l1">
       <div class="ord">FIRST LINE</div>
       <div class="name">Control</div>
